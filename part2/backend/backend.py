@@ -8,7 +8,8 @@ import joblib
 import pandas as pd
 
 app = FastAPI()
-model_path = "part2/models/best/best_model_pipeline.joblib"
+BASE = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE, "models", "best", "best_model_pipeline.joblib")
 model = joblib.load(model_path)
 
 @app.get("/health", tags=['health'])  
